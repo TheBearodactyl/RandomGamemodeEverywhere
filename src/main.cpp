@@ -42,23 +42,8 @@ $on_game(Loaded) {
 	listenForSettingChanges<bool>("dontRandomizeInitialGamemode", [](const bool v) { dontRandomizeInitialGamemode = v; });
 }
 
-static bool baseSanityCheck(PlayerObject* self, GJBaseGameLayer* layer) {
-	bool ret = true;
-
-	if (!layer || !enabled || !self) ret = false;
-	else if (layer->m_isEditor && dontEnableInEditor) ret = false;
-	else if (self != layer->m_player1 && self != layer->m_player2) ret = false;
-
-	return ret;
-}
-
-static bool isPracticeMode(GJBaseGameLayer* layer) {
-	return PlayLayer::get() && layer == PlayLayer::get() && PlayLayer::get()->m_isPracticeMode;
-}
-
 static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameObjectType mode, bool enablePortal) {
 	bool ret = false;
-	bool practiceMode = isPracticeMode(layer);
 	
 	if (!layer || !enabled || !self) ret = true;
 	else if (forcePassThrough) ret = true;
@@ -67,9 +52,8 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 
 	else if (self == layer->m_player1 && isRandomizingPlayerOne) ret = true;
 	else if (self == layer->m_player2 && isRandomizingPlayerTwo) ret = true;
-	else if (practiceMode) ret = true;
 
-	if (ret && enabled && layer && self && !practiceMode && (!layer->m_isEditor || !dontEnableInEditor)) {
+	if (ret && enabled && layer && self && (!layer->m_isEditor || !dontEnableInEditor)) {
 		if (!enablePortal) mode = GameObjectType::CubePortal;
 		layer->updateDualGround(self, static_cast<int>(mode), true, 0.5f);
 		if (randomizePlayerMirror) layer->toggleFlipped(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
