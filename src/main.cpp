@@ -113,6 +113,8 @@ class $modify(MyPlayerObject, PlayerObject) {
 		const int r = getRandom(7);
 		switch (r) {
 			default:
+				PlayerObject::toggleBirdMode(true, noEffects);
+				break;
 			case 0:
 				PlayerObject::toggleBirdMode(false, noEffects);
 				break;
@@ -143,6 +145,8 @@ class $modify(MyPlayerObject, PlayerObject) {
 		const int r = getRandom(7);
 		switch (r) {
 			default:
+				PlayerObject::toggleDartMode(true, noEffects);
+				break;
 			case 0:
 				PlayerObject::toggleDartMode(false, noEffects);
 				break;
@@ -173,6 +177,8 @@ class $modify(MyPlayerObject, PlayerObject) {
 		const int r = getRandom(7);
 		switch (r) {
 			default:
+				PlayerObject::toggleFlyMode(true, noEffects);
+				break;
 			case 0:
 				PlayerObject::toggleFlyMode(false, noEffects);
 				break;
@@ -203,6 +209,8 @@ class $modify(MyPlayerObject, PlayerObject) {
 		const int r = getRandom(7);
 		switch (r) {
 			default:
+				PlayerObject::toggleRobotMode(true, noEffects);
+				break;
 			case 0:
 				PlayerObject::toggleRobotMode(false, noEffects);
 				break;
@@ -233,6 +241,8 @@ class $modify(MyPlayerObject, PlayerObject) {
 		const int r = getRandom(7);
 		switch (r) {
 			default:
+				PlayerObject::toggleRollMode(true, noEffects);
+				break;
 			case 0:
 				PlayerObject::toggleRollMode(false, noEffects);
 				break;
@@ -263,6 +273,8 @@ class $modify(MyPlayerObject, PlayerObject) {
 		const int r = getRandom(7);
 		switch (r) {
 			default:
+				PlayerObject::toggleSpiderMode(true, noEffects);
+				break;
 			case 0:
 				PlayerObject::toggleSpiderMode(false, noEffects);
 				break;
@@ -293,6 +305,8 @@ class $modify(MyPlayerObject, PlayerObject) {
 		const int r = getRandom(7);
 		switch (r) {
 			default:
+				PlayerObject::toggleSwingMode(true, noEffects);
+				break;
 			case 0:
 				PlayerObject::toggleSwingMode(false, noEffects);
 				break;
