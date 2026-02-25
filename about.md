@@ -5,4 +5,6 @@ Based on level gimmicks pioneered by GD Quasar and popularized by KUAAA and the 
 
 Huge thanks to [TheBearodactyl](https://github.com/TheBearodactyl) for debugging my accidental infinite recursion. Thanks to [hiimjasmine00](https://github.com/hiimjasmine00) for finding some much-needed function calls.
 
+Mod idea suggested by [CaptainHasLoaded](https://discord.com/users/1169541290086641708).
+
 This [Geode mod](https://geode-sdk.org) is licensed under LGPLv2. To report bugs or get help with using my mods, press the Discord button in the lower left corner.
