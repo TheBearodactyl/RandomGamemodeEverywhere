@@ -64,7 +64,6 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 	else if (forcePassThrough) ret = true;
 	else if (self != layer->m_player1 && self != layer->m_player2) ret = true;
 	else if (layer->m_isEditor && dontEnableInEditor) ret = true;
-???
 
 	else if (self == layer->m_player1 && isRandomizingPlayerOne) ret = true;
 	else if (self == layer->m_player2 && isRandomizingPlayerTwo) ret = true;
