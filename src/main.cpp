@@ -65,9 +65,9 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 	if (ret && enabled && layer && self && (!layer->m_isEditor || !dontEnableInEditor)) {
 		if (!enablePortal) mode = GameObjectType::CubePortal;
 		layer->updateDualGround(self, static_cast<int>(mode), true, 0.5f);
-		layer->toggleFlipped(randomizePlayerMirror ? static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
-		layer->flipGravity(self, randomizePlayerGravity ? static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
-		self->togglePlayerScale(randomizePlayerSize ? static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
+		if (randomizePlayerMirror) layer->toggleFlipped(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
+		if (randomizePlayerGravity) layer->flipGravity(self, static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
+		if (randomizePlayerSize) self->togglePlayerScale(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 	}
 
 	return ret;
