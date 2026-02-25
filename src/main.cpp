@@ -100,7 +100,7 @@ class $modify(MyGJBaseGameLayer, GJBaseGameLayer) {
 	}
 
 	void flipGravity(PlayerObject* player, bool flip, bool noEffects) {
-		GJBaseGameLayer::toggleFlipped(baseSanityCheck(player, this) && randomizePlayerGravity ? static_cast<bool>(getRandom(1)) : flip, noEffects);
+		GJBaseGameLayer::flipGravity(player, baseSanityCheck(player, this) && randomizePlayerGravity ? static_cast<bool>(getRandom(1)) : flip, noEffects);
 	}
 };
 
