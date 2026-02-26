@@ -63,7 +63,7 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 	else if (self == layer->m_player1 && isRandomizingPlayerOne) ret = true;
 	else if (self == layer->m_player2 && isRandomizingPlayerTwo) ret = true;
 
-	if (ret && enabled && layer && self && (!layer->m_isEditor || !dontEnableInEditor)) {
+	if (!ret && enabled && layer && self && (!layer->m_isEditor || !dontEnableInEditor)) {
 		if (!enablePortal) mode = GameObjectType::CubePortal;
 		layer->updateDualGround(self, static_cast<int>(mode), false, 0.5f);
 		const bool shouldRandomize = ((!layer->m_isEditor && !static_cast<PlayLayer*>(layer)->m_isPracticeMode) || layer->m_isEditor);
