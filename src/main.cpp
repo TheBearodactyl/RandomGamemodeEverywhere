@@ -61,7 +61,7 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 		if (randomizePlayerMirror && shouldRandomize) layer->toggleFlipped(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 		if (randomizePlayerGravity && shouldRandomize) layer->flipGravity(self, static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 		if (randomizePlayerSize && shouldRandomize) self->togglePlayerScale(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
-		if (lastActivatedPortal1) layer->animateInDualGroundNew(lastActivatedPortal1, layer->getGroundHeight(self, static_cast<int>(mode)), false, .5f);
+		if (lastActivatedPortal1 && mode != GameObjectType::CubePortal && mode != GameObjectType::RobotPortal) layer->animateInDualGroundNew(lastActivatedPortal1, layer->getGroundHeight(self, static_cast<int>(mode)), false, .5f);
 	}
 
 	return ret;
