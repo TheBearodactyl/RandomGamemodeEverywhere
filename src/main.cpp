@@ -56,23 +56,12 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 
 	if (ret && enabled && layer && self && (!layer->m_isEditor || !dontEnableInEditor)) {
 		if (!enablePortal) mode = GameObjectType::CubePortal;
-		// layer->updateDualGround(self, static_cast<int>(mode), true, 0.5f);
+		layer->updateDualGround(self, static_cast<int>(mode), true, 0.5f);
 		const bool shouldRandomize = ((!layer->m_isEditor && !static_cast<PlayLayer*>(layer)->m_isPracticeMode) || layer->m_isEditor);
 		if (randomizePlayerMirror && shouldRandomize) layer->toggleFlipped(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 		if (randomizePlayerGravity && shouldRandomize) layer->flipGravity(self, static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 		if (randomizePlayerSize && shouldRandomize) self->togglePlayerScale(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
-		GameObject* dummyObject = new GameObject();
-		switch (mode) {
-			default: dummyObject->m_objectID = 12;
-			case GameObjectType::ShipPortal: dummyObject->m_objectID = 13;
-			case GameObjectType::BallPortal: dummyObject->m_objectID = 47;
-			case GameObjectType::UfoPortal: dummyObject->m_objectID = 111;
-			case GameObjectType::WavePortal: dummyObject->m_objectID = 660;
-			case GameObjectType::RobotPortal: dummyObject->m_objectID = 745;
-			case GameObjectType::SpiderPortal: dummyObject->m_objectID = 1331;
-			case GameObjectType::SwingPortal: dummyObject->m_objectID = 1933;
-		}
-		layer->updateCameraMode(self, dummyObject, false);
+		layer->updateCameraMode(self, lastActivatedPortal1, false);
 	}
 
 	return ret;
