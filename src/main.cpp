@@ -43,7 +43,7 @@ $on_game(Loaded) {
 	listenForSettingChanges<bool>("dontRandomizeInitialGamemode", [](const bool v) { dontRandomizeInitialGamemode = v; });
 }
 
-static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameObjectType mode, bool enablePortal, GameObject* lastActivatedPortal1) {
+static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameObjectType mode, bool enablePortal) {
 	bool ret = false;
 	
 	if (!layer || !enabled || !self) ret = true;
