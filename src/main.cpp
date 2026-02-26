@@ -62,7 +62,7 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 		if (randomizePlayerGravity && shouldRandomize) layer->flipGravity(self, static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 		if (randomizePlayerSize && shouldRandomize) self->togglePlayerScale(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 		if (lastActivatedPortal1) {
-			GameObject* dummyObject = *lastActivatedPortal1;
+			GameObject* dummyObject = new GameObject(*lastActivatedPortal1);
 			switch (mode) {
 				default: dummyObject->m_objectID = 12;
 				case GameObjectType::ShipPortal: dummyObject->m_objectID = 13;
