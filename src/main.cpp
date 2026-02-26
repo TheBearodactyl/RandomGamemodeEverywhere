@@ -61,7 +61,6 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 		if (randomizePlayerMirror && shouldRandomize) layer->toggleFlipped(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 		if (randomizePlayerGravity && shouldRandomize) layer->flipGravity(self, static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
 		if (randomizePlayerSize && shouldRandomize) self->togglePlayerScale(static_cast<bool>(getRandom(1)), static_cast<bool>(getRandom(1)));
-		if (lastActivatedPortal1 && typeinfo_cast<EffectGameObject*>(lastActivatedPortal1)) layer->updateCameraMode(static_cast<EffectGameObject*>(lastActivatedPortal1), false);
 	}
 
 	return ret;
