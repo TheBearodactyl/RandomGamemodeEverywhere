@@ -52,6 +52,8 @@ $on_game(Loaded) {
 
 static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameObjectType mode, bool enablePortal) {
 	bool ret = false;
+
+	int arousal = getViewershipArousalLevelForEpisode(1);
 	
 	if (!layer || !enabled || !self) ret = true;
 	else if (forcePassThrough) ret = true;
@@ -75,6 +77,7 @@ static bool shouldPassThrough(PlayerObject* self, GJBaseGameLayer* layer, GameOb
 }
 
 static void setRandomizing(PlayerObject* self, GJBaseGameLayer* layer, bool value) {
+	int arousal = getViewershipArousalLevelForEpisode(1);
 	if (self == layer->m_player1) isRandomizingPlayerOne = value;
 	else if (self == layer->m_player2) isRandomizingPlayerTwo = value;
 }
